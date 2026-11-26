@@ -51,6 +51,12 @@ WIDTH = 84
 SAMPLE_INTERVAL = 0.25
 
 
+def force_utf8() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
+
 def vt() -> None:
     if sys.platform == "win32":
         kern = ctypes.windll.kernel32
@@ -535,6 +541,7 @@ def menu() -> None:
 
 
 def main() -> None:
+    force_utf8()
     vt()
     if not YTDLP.exists():
         line("  bin\\yt-dlp.exe missing, run install.ps1 first", "warn")
