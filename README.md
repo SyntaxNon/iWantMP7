@@ -7,7 +7,7 @@ Fast URL-only downloader for YouTube, TikTok, and Instagram to MP4 or MP3 on Win
 Paste this in PowerShell:
 
 ```powershell
-irm "https://raw.githubusercontent.com/SyntaxNon/IWantMP7/main/install.ps1" -OutFile "$env:TEMP\iwant-install.ps1"; powershell -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\iwant-install.ps1"
+irm "https://raw.githubusercontent.com/SyntaxNon/IWantMP7/main/install.ps1" | iex
 ```
 
 `install.ps1` must be in the repo root. No manual file download and no `iex`: it installs
